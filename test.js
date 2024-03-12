@@ -17,12 +17,14 @@ const puppeteer = require('puppeteer');
 
         // You can add further interactions here
 
-        // Close the browser when done
+        // Wait for 10 seconds before closing the browser
+        await new Promise(resolve => setTimeout(resolve, 10000));
+
+        // Close the browser
         await browser.close();
     } catch (error) {
         console.error('An error occurred:', error);
     }
 })();
-
 
 
