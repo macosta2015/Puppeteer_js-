@@ -1,0 +1,24 @@
+{
+  "name": "puppeteer_js-",
+  "version": "1.0.0",
+  "description": "Automated software testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/macosta2015/Puppeteer_js-.git"
+  },
+  "author": "Mario Acosta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/macosta2015/Puppeteer_js-/issues"
+  },
+  "homepage": "https://github.com/macosta2015/Puppeteer_js-#readme",
+  "dependencies": {
+    "cypress": "^13.6.6",
+    "prettier": "^3.2.5",
+    "puppeteer": "^22.4.1"
+  }
+}
