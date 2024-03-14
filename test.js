@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+require('dotenv').config(); // Load environment variables from .env file
 
 (async () => {
     try {
@@ -15,8 +16,10 @@ const puppeteer = require('puppeteer');
         await newPage.goto('https://cad.onshape.com/documents?resourceType=resourcecompanyowner&nodeId=65efc5e06e5bec02f57742fe', { waitUntil: 'networkidle0', timeout: 0 });
 
         console.log('Filling out form fields...');
-        await newPage.type('input[name="email"].form-control', 'macosta1297@gmail.com');
-        await newPage.type('input[name="password"].form-control', 'ElonMusk2050');
+        await newPage.type('input[name="email"].form-control', process.env.EMAIL);
+        await newPage.type('input[name="password"].form-control', process.env.PASSWORD);
+        // await newPage.type('input[name="email"].form-control', 'macosta1297@gmail.com');
+        // await newPage.type('input[name="password"].form-control', 'ElonMusk2050');
 
         console.log('Clicking on the submit button...');
         await newPage.click('button.btn.btn-primary.os-signin-button');
