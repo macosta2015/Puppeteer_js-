@@ -51,6 +51,19 @@ const puppeteer = require('puppeteer');
             }
         });
 
+        console.log('Waiting for 2 seconds after selecting the "Created By Me"...');
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
+        console.log('Clicking on the "Scale Sketch Example - Copy" element...');
+        await newPage.evaluate(() => {
+            const documentNameElement = document.querySelector('span[aria-label="Document name: Scale Sketch Example - Copy"][ng-bind-html="document.resultHighlight"]');
+            if (documentNameElement) {
+                documentNameElement.click();
+            } else {
+                console.error('Element with text "Scale Sketch Example - Copy" not found.');
+            }
+        });
+
         console.log('Taking a screenshot...');
         await newPage.screenshot({ path: 'form_submission.png' });
 
