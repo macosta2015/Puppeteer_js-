@@ -141,11 +141,32 @@ require('dotenv').config(); // Load environment variables from .env file
         //     console.error('Third "Edit" option not found.');
         // }
 
-        console.log('Waiting for 10 seconds after navigation...');
-        await new Promise(resolve => setTimeout(resolve, 10000));
+        console.log('Waiting for 5 seconds after navigation...');
+        await new Promise(resolve => setTimeout(resolve, 5000));
+
+        console.log('Clicking on the "Search tools" button...');
+        await newPage.click('button.command-search-trigger');
+
+        console.log('Typing "transform" into the search input field...');
+        await newPage.type('.os-search-box-input', 'transform');
+
+        console.log('Pressing "Enter" to perform the search...');
+        await newPage.keyboard.press('Enter');
+
+        console.log('Waiting for 5 seconds after navigation...');
+        await new Promise(resolve => setTimeout(resolve, 5000));
+
+        console.log('Clicking on the canvas element...');
+        await newPage.click('#canvas');
+
+        console.log('Waiting for 5 seconds after navigation...');
+        await new Promise(resolve => setTimeout(resolve, 5000));
 
         console.log('Taking a screenshot...');
         await newPage.screenshot({ path: 'form_submission.png' });
+
+        console.log('Waiting for 5 seconds after navigation...');
+        await new Promise(resolve => setTimeout(resolve, 50000));
 
         console.log('Closing the browser...');
         await browser.close();
