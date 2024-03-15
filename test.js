@@ -169,8 +169,12 @@ require('dotenv').config(); // Load environment variables from .env file
         await new Promise(resolve => setTimeout(resolve, 5000));
 
         //The following is broken
+        console.log('Waiting for the canvas element to be clickable...');
+        await newPage.waitForSelector('#canvas');
+
         console.log('Clicking on the canvas element...');
         await newPage.click('#canvas');
+
 
         console.log('Waiting for 5 seconds after navigation...');
         await new Promise(resolve => setTimeout(resolve, 5000));
